@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!-- 레이아웃 기능을 사용하기 위해 추가 -->
+
+<head>
+	<!-- basic -->
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- mobile metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+	<!-- site metas -->
+	<title>Trator</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<!-- bootstrap css -->
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+	<!-- style css -->
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+	<!-- Responsive-->
+	<link rel="stylesheet" th:href="@{/css/responsive.css}">
+	<!-- fevicon -->
+	<link rel="icon" th:href="@{/images/fevicon.png}" type="image/gif" />
+	<!-- font css -->
+	<link
+		th:href="@{https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;500;600;700;800&display=swap}"
+		rel="stylesheet">
+	<!-- Scrollbar Custom CSS -->
+	<link rel="stylesheet" th:href="@{/css/jquery.mCustomScrollbar.min.css}">
+	<!-- Tweaks for older IEs-->
+	<link rel="stylesheet" th:href="@{https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css}">
+
+	
+		<!-- 각 페이지의 CSS가 작성될 위치 -->
+	<th:block layout:fragment="css"></th:block>
+</head>
+
+
+<body>
+
+		<div th:replace="fragments/header::header"></div>
+		<div layout:fragment="content" class="content"></div>
+		<div th:replace="fragments/footer::footer"></div>
+	
+
+
+
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/popper.min.js}"></script>
+	<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	<script th:src="@{/js/jquery-3.0.0.min.js}"></script>
+	<script th:src="@{/js/plugin.js}"></script>
+	<!-- sidebar -->
+	<script th:src="@{/js/jquery.mCustomScrollbar.concat.min.js}"></script>
+	<script th:src="@{/js/custom.js}"></script>
+
+
+
+</body>
+
+</html>

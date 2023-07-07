@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
+
+
+
+
+
+<div class="header_section" th:fragment="header">
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<a class="navbar-brand" href="/"><img src="/images/logo.png"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="has-children active" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+						<a>관리자 메뉴</a>
+						<ul class="dropdown">
+							<li><a href="/admin/item/new">상품등록</a></li>
+							<li><a href="/admin/items">상품관리</a></li>
+						</ul>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="/">홈</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/about/about">차량 검색</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/services/services">서비스품목</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/gallery/gallery">Vehicles</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="/contact/contact">Contact</a>
+					</li>
+
+
+				</ul>
+				<span class="Login-nav">
+					<a class="btn-outline-sm" href="/members/login" sec:authorize="isAnonymous()">로그인</a>
+					<a class="btn-outline-sm" href="/members/logout" sec:authorize="isAuthenticated()">로그아웃</a>
+				</span>
+				<form class="form-inline my-2 my-lg-0">
+				</form>
+			</div>
+		</nav>
+	</div>
+
+	<div class="call_text_main">
+		<div class="container">
+			<div class="call_taital">
+				<div class="call_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span
+							class="padsding_left_15">Location</span></a></div>
+				<div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span
+							class="padding_left_15">(+71) 8522369417</span></a></div>
+				<div class="call_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span
+							class="padding_left_15">demo@gmail.com</span></a></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+</html>
