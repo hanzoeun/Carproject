@@ -1,71 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layouts/layout1}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-
-
-
-
-<div class="header_section" th:fragment="header">
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar"
+	th:fragment="header">
 	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<a class="navbar-brand" href="/"><img src="/images/logo.png"></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-auto">
-					<li class="has-children active" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
-						<a>관리자 메뉴</a>
-						<ul class="dropdown">
-							<li><a href="/admin/item/new">상품등록</a></li>
-							<li><a href="/admin/items">상품관리</a></li>
-						</ul>
-					</li>
+		<a class="navbar-brand" href="index.html">Car<span>Book</span></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+			aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="oi oi-menu"></span> Menu
+		</button>
 
-					<li class="nav-item">
-						<a class="nav-link" href="/">홈</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/about/about">차량 검색</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/services/services">서비스품목</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/gallery/gallery">Vehicles</a>
-					</li>
+		<div class="collapse navbar-collapse" id="ftco-nav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a href="/" class="nav-link">집</a></li>
+				<li class="nav-item"><a href="about.html" class="nav-link">회사소개</a></li>
+				<li class="nav-item"><a href="/service" class="nav-link">서비스</a></li>
+				<li class="nav-item"><a href="pricing.html" class="nav-link">가격</a></li>
+				<li class="nav-item"><a href="/car" class="nav-link">자동차</a></li>
+				<li class="nav-item"><a href="blog.html" class="nav-link">블로그</a></li>
+				<li class="nav-item"><a href="/contact" class="nav-link">문의하기</a></li>
 
-					<li class="nav-item">
-						<a class="nav-link" href="/contact/contact">Contact</a>
-					</li>
-
-
-				</ul>
-				<span class="Login-nav">
-					<a class="btn-outline-sm" href="/members/login" sec:authorize="isAnonymous()">로그인</a>
-					<a class="btn-outline-sm" href="/members/logout" sec:authorize="isAuthenticated()">로그아웃</a>
-				</span>
-				<form class="form-inline my-2 my-lg-0">
-				</form>
-			</div>
-		</nav>
-	</div>
-
-	<div class="call_text_main">
-		<div class="container">
-			<div class="call_taital">
-				<div class="call_text"><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span
-							class="padsding_left_15">Location</span></a></div>
-				<div class="call_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span
-							class="padding_left_15">(+71) 8522369417</span></a></div>
-				<div class="call_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span
-							class="padding_left_15">demo@gmail.com</span></a></div>
-			</div>
+				<li><a href="/orders" sec:authorize="isAuthenticated()">구매이력</a></li>
+				<li><a href="/members/login" sec:authorize="isAnonymous()">로그인</a></li>
+				<li><a href="/members/logout" sec:authorize="isAuthenticated()">로그아웃</a></li>
+			</ul>
 		</div>
 	</div>
-</div>
-
+</nav>
 
 </html>
