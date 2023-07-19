@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar"
-	th:fragment="header">
+<nav
+	class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
+	id="ftco-navbar" th:fragment="header">
 	<div class="container">
-		<a class="navbar-brand" href="index.html">Car<span>Book</span></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-			aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+		<a class="navbar-brand" href="/">Car<span>Book</span></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#ftco-nav" aria-controls="ftco-nav"
+			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="oi oi-menu"></span> Menu
 		</button>
 
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active"><a href="/admin/caritem" class="nav-link" sec:authorize="isAuthenticated()">차량 등록</a></li>
+			
 				<li class="nav-item active"><a href="/" class="nav-link">집</a></li>
-				<li class="nav-item"><a href="about.html" class="nav-link">회사소개</a></li>
+				<li class="nav-item"><a href="/about" class="nav-link">회사소개</a></li>
 				<li class="nav-item"><a href="/service" class="nav-link">서비스</a></li>
-				<li class="nav-item"><a href="pricing.html" class="nav-link">가격</a></li>
+				<li class="nav-item"><a href="/price" class="nav-link">가격</a></li>
 				<li class="nav-item"><a href="/car" class="nav-link">자동차</a></li>
 				<li class="nav-item"><a href="blog.html" class="nav-link">블로그</a></li>
 				<li class="nav-item"><a href="/contact" class="nav-link">문의하기</a></li>
 
-				<li><a href="/orders" sec:authorize="isAuthenticated()">구매이력</a></li>
-				<li><a href="/members/login" sec:authorize="isAnonymous()">로그인</a></li>
-				<li><a href="/members/logout" sec:authorize="isAuthenticated()">로그아웃</a></li>
+				<li  class="nav-item" ><a class="nav-link" href="/orders" sec:authorize="isAuthenticated()">구매이력</a></li>
+				<li  class="nav-item"><a class="nav-link" href="/members/login" sec:authorize="isAnonymous()">로그인</a></li>
+				<li  class="nav-item"><a class="nav-link" href="/members/logout" sec:authorize="isAuthenticated()">로그아웃</a></li>
 			</ul>
 		</div>
 	</div>

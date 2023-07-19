@@ -1,113 +1,115 @@
-<html>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout1}">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>로그인 - Tivo - SaaS 앱 HTML 랜딩 페이지 템플릿</title>
 
-	<!-- Styles -->
-
-	<link href="/css/mainImpl.css" rel="stylesheet">
-
-	<link href="/css/fontawesome-all.css" rel="stylesheet">
-
-	<link href="/css/main.css" rel="stylesheet">
-
-	<!-- Favicon  -->
-
-<link type="text/css" rel="stylesheet" charset="UTF-8"
-	href="https://www.gstatic.com/_/translate_http/_/ss/k=translate_http.tr.69JJaQ5G5xA.L.W.O/d=0/rs=AN8SPfpC36MIoWPngdVwZ4RUzeJYZaC7rg/m=el_main_css">
-</head>
-
+<th:block layout:fragment="css">
+	<style>
+	 .error {
+	 	color: #bd2130;
+	 	 
+	 }
+	 
+	 	 .content {
+	 background-color:	 #808080;
+	 }
+	</style>
+	<link rel="stylesheet" th:href="@{/css/loginForm.css}">
+</th:block>
 
 
 
-	<!-- Header -->
-	<header id="header" class="ex-2-header">
-		<div class="container">
+<div class="content" layout:fragment="content">
+
+
+
+	<div class="container">
+		<div class="site-section">
+
 			<div class="row">
-				<h1>회원가입</h1>
-				<p>아래 양식을 작성하여 회원가입을 진행해주세요, 이미 가입하셧다면
-					<a href="/members/login">로그인하십시오</a>
-				</p>
+
 				<div class="col-lg-12">
-					 <div class="form-container">
-					<div class="p-3 p-lg-5 border">
-						<form role="form" action="/members/new" method="post" th:object="${memberFormDto}" id="logInForm" >
-							<div class="form-group">
-								<div class="col-md-12">
-									<label th:for="name" class="label-control"></label> <input type="text"
-										class="form-control-input" placeholder="이름을 입력해주세요" th:field="*{name}">
-									<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="fieldError">
-										Incorrect Data</p>
+					<div class="form-container">
+						<div class="p-3 p-lg-5 border">
+							<form role="form" action="/members/new" method="post"
+								th:object="${memberFormDto}" id="logInForm">
+								<div class="form-group">
+									<div class="col-md-12">
+										<label th:for="name" class="label-control"></label> <input
+											type="text" class="form-control-input"
+											placeholder="이름을 입력해주세요" th:field="*{name}">
+										<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+											class="fieldError">Incorrect Data</p>
+									</div>
 								</div>
-							</div>
 
-							<div class="form-group">
-								<div class="col-md-12">
-									<label th:for="email" class="label-control"></label> <input type="email"
-										class="form-control-input" placeholder="이메일을 입력해주세요" th:field="*{email}">
-									<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="fieldError">
-										Incorrect Data</p>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label th:for="email" class="label-control"></label> <input
+											type="email" class="form-control-input"
+											placeholder="이메일을 입력해주세요" th:field="*{email}">
+										<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+											class="fieldError">Incorrect Data</p>
+									</div>
 								</div>
-							</div>
 
-							<div class="form-group">
-								<div class="col-md-12">
-									<label th:for="password" class="label-control"></label> <input type="password"
-										class="form-control-input" placeholder="비밀번호를 입력해주세요" th:field="*{password}">
-									<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-										class="fieldError">Incorrect Data</p>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label th:for="password" class="label-control"></label> <input
+											type="password" class="form-control-input"
+											placeholder="비밀번호를 입력해주세요" th:field="*{password}">
+										<p th:if="${#fields.hasErrors('password')}"
+											th:errors="*{password}" class="fieldError">Incorrect Data</p>
+									</div>
 								</div>
-							</div>
 
-							<div class="form-group">
-								<div class="col-md-12">
-									<label th:for="address" class="label-control"></label> <input type="text"
-										class="form-control-input" placeholder="주소를 입력해주세요" th:field="*{address}">
-									<p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
-										class="fieldError">Incorrect Data</p>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label th:for="address" class="label-control"></label> <input
+											type="text" class="form-control-input"
+											placeholder="주소를 입력해주세요" th:field="*{address}">
+										<p th:if="${#fields.hasErrors('address')}"
+											th:errors="*{address}" class="fieldError">Incorrect Data</p>
+									</div>
 								</div>
-							</div>
-							
-							<div class="form-group">
-								<div class="col-md-12">
-									<label th:for="phone" class="label-control"></label> <input type="text"
-										class="form-control-input" placeholder="핸드폰번호를 입력해주세요" th:field="*{phone}">
-									<p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
-										class="fieldError">Incorrect Data</p>
+
+								<div class="form-group">
+									<div class="col-md-12">
+										<label th:for="phone" class="label-control"></label> <input
+											type="text" class="form-control-input"
+											placeholder="핸드폰번호를 입력해주세요" th:field="*{phone}">
+										<p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"
+											class="fieldError">Incorrect Data</p>
+									</div>
 								</div>
-							</div>
 
-							<div class="form-group">
-								<div class="col-lg-12">
-									<button type="submit" class="form-control-submit-button disabled">회원가입</button>
+								<div class="form-group">
+									<div class="col-lg-12">
+										<button type="submit"
+											class="form-control-submit-button disabled">회원가입</button>
+										<a href="/members/login">로그인하십시오</a>
+									</div>
 								</div>
-							</div>
 
 
 
 
-							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
-						</form>
-					</div>
+								<input type="hidden" th:name="${_csrf.parameterName}"
+									th:value="${_csrf.token}">
+							</form>
+						</div>
 					</div>
 				</div>
-			</div> <!-- end of row -->
-		</div> <!-- end of container -->
-	</header> <!-- end of ex-header -->
-	<!-- end of header -->
+			</div>
+			<!-- end of row -->
+		</div>
+		<!-- end of container -->
+	</div>
 
-
-
-
-</body>
-
-
-
-<!-- 각 페이지의 스크립트가 작성될 위치 -->
-<th:block layout:fragment="script">
-	<script th:inline="javascript">
+	<!-- 각 페이지의 스크립트가 작성될 위치 -->
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
 		//회원가입이 실패했을때
 		$(document).ready(function () {
 			var errorMessage = [[${errorMessage}]];
@@ -116,6 +118,13 @@
 			}
 		});
 	</script>
-</th:block>
+	</th:block>
+</div>
+
+
+
+
+
+
 
 </html>
