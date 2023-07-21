@@ -1,6 +1,8 @@
 package com.car.entity;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -14,6 +16,7 @@ import lombok.*;
 @Getter
 @Setter
 public abstract class BaseTimeEntity {
+
 	
 	@CreatedDate //엔티티가 생성되서 저장될때 시간을 자동으로 저장한다
 	@Column(updatable = false) //컬럼의 값을 수정하지 못하게 막음
@@ -21,6 +24,8 @@ public abstract class BaseTimeEntity {
 	
 	@LastModifiedDate //수정될때 시간을 자동으로 저장한다
 	private LocalDateTime endTime; // 종료날짜
+	
+
 }
 
 

@@ -16,37 +16,37 @@ import lombok.*;
 @Getter
 @ToString
 @Entity
-@Table(name = "CarImg")
+@Table(name = "car_img")
 public class CarImg extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO) //기본키를 지정한다
-	@Column(name = "CarImgId")
+	@Column(name = "car_img_id")
 	private Long id; 
 	
 	
 
-	private String CarName; //바뀐 차량이미지 이름을 나타낸다 
+	private String carName; //바뀐 차량이미지 이름을 나타낸다 
 	
 	
 	
-	private String CarNameOr;  //원본 차량 이미지 이름을 나타낸다
-	
-
-	private String CarImgUrl; //차량 이미지 경로를 확인한다
+	private String carNameOr;  //원본 차량 이미지 이름을 나타낸다
 	
 
-	private String CarImgYn; // 대표이미지를 넣는지
+	private String carImgUrl; //차량 이미지 경로를 확인한다
+	
+
+	private String carImgYn; // 대표이미지를 넣는지
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CarId")
+	@JoinColumn(name = "car_id")
 	private Car car;
 	
 	
 	//이미지에 대한 정보를 업데이트 하는 메소드
 		public void updateItemImg(String CarNameOr, String CarName, String CarImgUrl) {
-			this.CarNameOr = CarNameOr;
-			this.CarName = CarName;
-			this.CarImgUrl = CarImgUrl;
+			this.carNameOr = CarNameOr;
+			this.carName = CarName;
+			this.carImgUrl = CarImgUrl;
 		}
 }
