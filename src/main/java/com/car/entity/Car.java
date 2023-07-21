@@ -67,7 +67,6 @@ public class Car extends BaseEntity{
 	private Member member;
 	
 	
-	private List<CarImgDto> carImgDtoList = new ArrayList<>(); //carimg를 리스트로 넣어서 카에 넣어준다. 
 	/*
 	 * @OneToMany(mappedBy = "order" , cascade = CascadeType.ALL, orphanRemoval =
 	 * true , fetch = FetchType.LAZY) //연관관계의 주인 설정(외래키 지정) private List<Lent> lents
@@ -76,6 +75,9 @@ public class Car extends BaseEntity{
 	 * public void addLent(Lent lent) { this.lents.add(lent); lent.setCar(this); //*
 	 * 양방향 참조관계를 반듬 }
 	 */
+	
+	
+	
 	
 	
 	//업데이트 쿼리문을 쓰지않고 엔티티값만 수정해준다. 

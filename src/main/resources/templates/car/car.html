@@ -3,7 +3,12 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{layouts/layout1}">
 
-<div class="content" layout:fragment="content">
+<th:block layout:fragment="css">
+	<style>
+	</style>
+</th:block>
+
+<div  layout:fragment="content">
 
 	<section class="hero-wrap hero-wrap-2 js-fullheight"
 		style="background-image: url('/images/bg_3.jpg');"
@@ -28,11 +33,11 @@
 	<section class="ftco-section bg-light" >
 		<div class="container">
 			<div class="row">
-				<th:block  action = "car/car" method="get" th:object="${carDto}">
+				<th:block  th:each="car, status: ${cars.getContent()}" action = "car/car" method="get" >
 					<div class="col-md-4">
 						<div class="car-wrap rounded ftco-animate">
 							<div class="img rounded d-flex align-items-end">
-								<img th:src=${carImg.carImgUrl} th:alt=${carImg.carName}
+								<img th:src=${car.carImgUrl} th:alt=${car.carName}
 									class="img-fluid">
 							</div>
 							<div class="text">
@@ -42,7 +47,7 @@
 								<div class="d-flex mb-3">
 									<span class="cat">Cheverolet</span>
 									<p class="price ml-auto">
-										[[${#numbers.formatInteger(car.carPrice * 1.5, 0, 'COMMA')}]]원
+										[[${$car.carPrice}]]원
 										<span>/1시간</span>
 									</p>
 								</div>
@@ -53,9 +58,9 @@
 							</div>
 						</div>
 					</div>
+			</div>
 				</th:block>
 
-			</div>
 			<div class="row mt-5">
 				<div class="col text-center">
 					<nav

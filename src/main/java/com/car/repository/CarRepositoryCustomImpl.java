@@ -57,7 +57,7 @@ public class CarRepositoryCustomImpl implements CarRepositoryCustom {
 	
 	
 	private BooleanExpression searchByLike(String searchBy, String searchQuery) {
-		if(StringUtils.equals("itemNm", searchBy)) {
+		if(StringUtils.equals("carName", searchBy)) {
 			//등록자로 검색시
 			return QCar.car.carName.like("%"+ searchQuery +"%"); //item_nm like %검색어%
 		} else if(StringUtils.equals("createdBy", searchBy)) {

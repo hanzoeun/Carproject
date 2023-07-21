@@ -45,6 +45,8 @@ public class CarImgService {
 		carImgRepository.save(carImg); // db에 insert는 하는방법
 	}
 	
+	
+	//updatecarimg 
 	public void updateCarImg(Long carImgId, MultipartFile carImgFile) throws Exception {
 		
 		if(!carImgFile.isEmpty()) {
