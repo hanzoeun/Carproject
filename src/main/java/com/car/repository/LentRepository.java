@@ -11,7 +11,7 @@ import com.car.entity.Lent;
 public interface LentRepository extends JpaRepository<Lent , Long>{
 
 	@Query("select o from Lent o where o.member.email = :email order by o.orderDate desc")
-	List<Lent> findOrders(@Param("email")String email, Pageable pageable);
+	List<Lent> findlents(@Param("email")String email, Pageable pageable);
 	
 	
 	

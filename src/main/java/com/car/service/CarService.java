@@ -33,6 +33,8 @@ public class CarService {
 	private final CarImgService carImgService;
 	
 	
+	
+	//car 테이블에 상품등록하는 서비스
 	public Long saveCar(CarDto cardto, List<MultipartFile> carImgFileList) throws Exception {
 		
 		

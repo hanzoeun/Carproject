@@ -47,6 +47,10 @@ public class CarDto {
 
 	private static ModelMapper modelMapper = new ModelMapper();
 
+	/*
+	CarDto carDto = 레퍼지토리에서 가져옴;
+	cardto.addCarImg()
+	*/
 	
 	//entity 를 dto로 변환시킨다
 	public Car createCar() {
@@ -57,5 +61,10 @@ public class CarDto {
 	//dto -> entity 객체를 만든다
 	public static CarDto of(Car car) {
 		return modelMapper.map(car, CarDto.class);
+	}
+	
+	// 현재 DTO(CarDto) 의 carImgDtoList에 CarImgDto를 넣어줌.
+	public void addCarImg(CarImgDto carImgDto) {
+		this.carImgDtoList.add(carImgDto);
 	}
 }

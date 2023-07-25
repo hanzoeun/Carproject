@@ -80,6 +80,7 @@ public class Car extends BaseEntity{
 	
 	
 	
+	
 	//업데이트 쿼리문을 쓰지않고 엔티티값만 수정해준다. 
 	public void updateItem(CarDto carDto) {
 		this.carName = carDto.getCarName();

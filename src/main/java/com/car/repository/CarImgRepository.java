@@ -16,4 +16,6 @@ public interface CarImgRepository extends JpaRepository<CarImg, Long>{
 	CarImg findByCarIdAndCarImgYn(Long carId , String carImgYn);
 	
 	
+	
+	
 }

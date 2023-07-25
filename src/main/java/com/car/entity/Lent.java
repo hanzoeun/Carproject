@@ -61,7 +61,15 @@ public class Lent extends BaseEntity{
 	private LocalDateTime orderDate; //주문일
 	
 	
-	/* private List<Car> cars = new ArrayList<>(); */
+	public static Lent createLent(Member member, List<Lent> lentList) {
+		Lent lent = new Lent();
+		lent.setMember(member);
+		
+		lent.setOrderStatus(OrderStatus.STAY);
+		lent.setOrderDate(LocalDateTime.now());
+		
+		return lent;
+	}
 	
 
 	
