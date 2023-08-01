@@ -21,10 +21,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.car.dto.CarDto;
 import com.car.dto.CarSearchDto;
-
+import com.car.dto.LentDto;
 import com.car.dto.MainCarDto;
 import com.car.entity.Car;
 import com.car.service.CarService;
+
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -34,12 +35,13 @@ import lombok.RequiredArgsConstructor;
 public class CarController {
 
 	private final CarService carService;
+	
 
 	// 등록한 차량 전체 리스트
 	@GetMapping(value = "/car")
 	public String CarList(CarSearchDto carSearchDto, Optional<Integer> page, Model model) {
-		Pageable pageabel = PageRequest.of(page.isPresent() ? page.get() : 0, 6);
-		Page<MainCarDto> cars = carService.getMainCarPage(carSearchDto, pageabel);
+		Pageable pageable = PageRequest.of(page.isPresent() ? page.get() : 0, 6);
+		Page<MainCarDto> cars = carService.getMainCarPage(carSearchDto, pageable);
 
 		model.addAttribute("cars", cars);
 		model.addAttribute("carSearchDto", carSearchDto);
@@ -53,13 +55,63 @@ public class CarController {
 	public String CarDetail() {
 		return "car/carDetail";
 	}
+	
+	//차량 수정 페이지 
+	@GetMapping(value="/admin/cars/{carId}")
+	public String carDto(@PathVariable("carId") Long carId, Model model) {
+		try {
+			CarDto carDto = carService.getCarDto(carId);
+			model.addAttribute("carDto" , carDto);
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage", "차량정보를 가져오는 과정에서 에러가 발생했습니다.");
+			
+			
+			
+			model.addAttribute("carDto" , new CarDto());
+			
+			return "car/caritem";
+		}
+		
+		return "car/carModifyForm";
+		
+	}
+	
+	
+	//차량 수정(update)
+	@PostMapping(value="/admin/cars/{carId}")
+	public String carUpdate(@Valid CarDto carDto, Model model , BindingResult bindingResult, 
+			@RequestParam("carImgFile") List<MultipartFile> carImgFileList ) {
+		
+		if(bindingResult.hasErrors()) {
+			return "car/caritem";
+		}
+		
+		if((carImgFileList.get(0)).isEmpty() && carDto.getId() == null) {
+			model.addAttribute("errorMessage" , "첫번째 상품 이미지는 필수 입니다.");
+			return "car/caritem";
+		}
+		
+		try {
+			carService.updateCar(carDto, carImgFileList);
+		} catch (Exception e) {
+			e.printStackTrace();
+			model.addAttribute("errorMessage" , "차량 수정 중 오류가 발생했습니다.");
+			return "car/caritem";
+			
+		}
+		
+		return "redirect:/";
+		
+	}
 
-	// 상세설명
+	// 예약하기 , 상세페이지 보여주기 
 	@GetMapping(value = "/car/{carId}")
 	public String CarLent(Model model, @PathVariable("carId") Long carId) {
 
 		CarDto cardto = carService.getCarDto(carId);
 		model.addAttribute("car", cardto);
+		model.addAttribute("lentDto" , new LentDto());
 
 		return "car/carlent";
 	}
@@ -70,6 +122,9 @@ public class CarController {
 		model.addAttribute("carDto", new CarDto());
 		return "/car/caritem";
 	}
+	
+	
+	
 
 	// 차량 이미지등록(insert)
 	@PostMapping(value = "/admin/caritem")
@@ -108,8 +163,11 @@ public class CarController {
 		model.addAttribute("carSearchDto" , carSearchDto);
 		model.addAttribute("maxPage" , 5); //관리페이지 하다넹 보여줄 최대 페이지 번호
 		
-		return "car/carMng";
+		return "car/carManage";
 
 	}
+	
+	
+	
 
 }

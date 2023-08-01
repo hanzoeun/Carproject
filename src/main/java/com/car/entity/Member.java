@@ -57,8 +57,8 @@ public class Member {
 		member.setAddress(memberFormDto.getAddress());
 		member.setPassword(password);
 		member.setPhone(memberFormDto.getPhone());
-//		member.setRole(Role.ADMIN);  //관리자로 가입할때
-		member.setRole(Role.USER); //일반사용자로 가입할때
+		member.setRole(Role.ADMIN);  //관리자로 가입할때
+//		member.setRole(Role.USER); //일반사용자로 가입할때
 		
 		return member;
 	}

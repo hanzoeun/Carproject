@@ -42,7 +42,7 @@ public class CarImg extends BaseEntity{
 	@JoinColumn(name = "car_id")
 	private Car car;
 	
-	
+
 	
 	
 	

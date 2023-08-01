@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.car.constant.OrderStatus;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,6 +17,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -49,10 +51,12 @@ public class Lent extends BaseEntity{
 	@JoinColumn(name = "member_id")
 	private Member member;
 	
-	private String lentStart; //렌트 시작장소
+	private String lentEStarts; //렌트 시작장소
 	
-	private String lentEnd; //렌트 반납장소
+	private String lentEEnds; //렌트 반납장소
 	
+	
+
 	
 	 
 	@Enumerated(EnumType.STRING)  //주문장소확인

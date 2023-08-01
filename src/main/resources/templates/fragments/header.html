@@ -15,8 +15,16 @@
 
 		<div class="collapse navbar-collapse" id="ftco-nav">
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item active"><a href="/admin/caritem" class="nav-link" sec:authorize="isAuthenticated()">차량 등록</a></li>
 			
+				
+				<li class="has-children active" sec:authorize="hasAnyAuthority('ROLE_ADMIN')">
+					<a href="/" class="nav-link">관리자메뉴</a>
+					<ul class="dropdown">
+						<li><a href="/admin/caritem">상품등록</a></li>
+						<li><a href="/admin/cars">상품관리</a></li>
+					</ul>
+				</li>
+
 				<li class="nav-item active"><a href="/" class="nav-link">집</a></li>
 				<li class="nav-item"><a href="/about" class="nav-link">회사소개</a></li>
 				<li class="nav-item"><a href="/service" class="nav-link">서비스</a></li>
@@ -25,12 +33,14 @@
 				<li class="nav-item"><a href="blog.html" class="nav-link">블로그</a></li>
 				<li class="nav-item"><a href="/contact" class="nav-link">문의하기</a></li>
 
-				<li  class="nav-item" ><a class="nav-link" href="/orders" sec:authorize="isAuthenticated()">구매이력</a></li>
-				<li  class="nav-item"><a class="nav-link" href="/members/login" sec:authorize="isAnonymous()">로그인</a></li>
-				<li  class="nav-item"><a class="nav-link" href="/members/logout" sec:authorize="isAuthenticated()">로그아웃</a></li>
+				<li class="nav-item"><a class="nav-link" href="/orders"
+					sec:authorize="isAuthenticated()">구매이력</a></li>
+				<li class="nav-item"><a class="nav-link" href="/members/login"
+					sec:authorize="isAnonymous()">로그인</a></li>
+				<li class="nav-item"><a class="nav-link" href="/members/logout"
+					sec:authorize="isAuthenticated()">로그아웃</a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
-
 </html>

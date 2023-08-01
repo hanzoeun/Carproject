@@ -1,13 +1,12 @@
 package com.car.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+
 
 import com.car.constant.CarSellStatus;
 
 import com.car.constant.CarType;
 import com.car.dto.CarDto;
-import com.car.dto.CarImgDto;
+
 
 
 import groovy.transform.ToString;
@@ -32,7 +31,7 @@ import lombok.Setter;
 @Setter
 @Table(name = "car")
 @ToString
-public class Car extends BaseEntity{
+public class Car extends BaseEntity{ 
 	//Entity는 db로 연결되는 곳이다 	
 	
 	
@@ -67,14 +66,7 @@ public class Car extends BaseEntity{
 	private Member member;
 	
 	
-	/*
-	 * @OneToMany(mappedBy = "order" , cascade = CascadeType.ALL, orphanRemoval =
-	 * true , fetch = FetchType.LAZY) //연관관계의 주인 설정(외래키 지정) private List<Lent> lents
-	 * = new ArrayList<>();
-	 * 
-	 * public void addLent(Lent lent) { this.lents.add(lent); lent.setCar(this); //*
-	 * 양방향 참조관계를 반듬 }
-	 */
+
 	
 	
 	
@@ -87,6 +79,9 @@ public class Car extends BaseEntity{
 		this.carPrice = carDto.getCarPrice();
 		this.carDetail = carDto.getCarDetail();
 		this.carSellStatus = carDto.getCarSellStatus();
+		this.carType = carDto.getCarType();
+		this.carYear = carDto.getCarYear();
+		this.carKm = carDto.getCarKm();
 	}
 	
 	

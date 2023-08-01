@@ -11,6 +11,7 @@ import com.car.constant.CarType;
 import com.car.entity.Car;
 
 
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -46,7 +47,11 @@ public class CarDto {
 	private List<Long> carImgs = new ArrayList<>();  
 
 	private static ModelMapper modelMapper = new ModelMapper();
-
+	
+	
+	
+	
+	
 	/*
 	CarDto carDto = 레퍼지토리에서 가져옴;
 	cardto.addCarImg()

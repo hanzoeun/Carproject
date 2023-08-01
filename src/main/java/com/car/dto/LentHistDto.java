@@ -23,10 +23,12 @@ public class LentHistDto {
 	private String orderDate;
 	private OrderStatus orderStatus;
 	private List<CarDto> carDtoList = new ArrayList<>();
+
 	
 	
 	//CarDto 객체를 주문상품 리스트에 추가하는 메소드
 	public void addCarDtO(CarDto carDto) {
 		this.carDtoList.add(carDto);
 	}
+
 }
